@@ -13,5 +13,5 @@ public interface GuestMapper {
     GuestResponseDTO toResponse(Guest guest);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    void updateEntity(GuestRequestDTO memberRequestDTO, @MappingTarget Guest guest);
+    void updateEntity(GuestRequestDTO guestRequestDTO, @MappingTarget Guest guest);
 }

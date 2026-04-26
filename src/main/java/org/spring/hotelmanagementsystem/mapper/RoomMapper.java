@@ -1,8 +1,7 @@
 package org.spring.hotelmanagementsystem.mapper;
 
 import ch.qos.logback.core.model.ComponentModel;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
+import org.mapstruct.*;
 import org.spring.hotelmanagementsystem.dto.RoomRequestDTO;
 import org.spring.hotelmanagementsystem.dto.RoomResponseDTO;
 import org.spring.hotelmanagementsystem.models.Room;
@@ -14,5 +13,7 @@ public interface RoomMapper {
     @Mapping(source = "hotel.id", target = "hotelId")
     @Mapping(source = "hotel.name", target = "hotelName")
     RoomResponseDTO toResponse(Room room);
+    @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
+    void updateEntity(RoomRequestDTO roomRequestDTO, @MappingTarget Room room);
 
 }
